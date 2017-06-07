@@ -86,7 +86,7 @@ You probably don't have access to an IP address that is implicated in a high-ris
 
 !["He is just unbelievably evil"](.doc/romain.jpg "Romain Didry, international man of mystery, license to hack")
 
-Try creating an account with his email address `romain@sqreen.io`. It should fail, as this email address has a risk score of 80, he must have done something terrible.
+Try creating an account with his email address `romain@sqreen.io`. It should fail, as this email address has a risk score of 100, the maximum possible.
 
 !["No good at all!"](.doc/blocked-signup.png "Romain cannot create an account! Evil begone!")
 
@@ -101,15 +101,15 @@ We can check the sign-in process too. Go ahead and create an account with your o
 ## Troubleshooting
 If you aren't getting the expected failures, the first thing to check is whether `devise_sqreener` is getting the Sqreen API key. Make sure that it is being passed in your environment. Once you are certain that the API key is getting passed, double check the policy predicates you set up; make sure that the email address or IP address you are using really does fail the predicates as expected.
 
-# There is no step 2
+# There is no step 3
 
 That's all there is! Our app is now blocking evil hackers like that fiendish Romain, and it is also preventing sign-ins from France and over TOR.
 
-The next step isn't really a step at all, but contains the final fully operational code for you to play with and experiment with.
+The next section contains the final fully operational code for you to play with and experiment with.
 
 ----
 
-Continue to the so-called [step 2](https://github.com/sqreen/devise_sqreener_tutorial/blob/step_2/README.md)
+Continue to [Step 2](https://github.com/sqreen/devise_sqreener_tutorial/blob/step_2/README.md)
 ```bash
 $ git checkout step_2
 ```
