@@ -277,5 +277,16 @@ Devise.setup do |config|
 
 
   # devise_sqreener configuration
-  config.sqreen_api_token=ENV["SQREEN_API_TOKEN"]
+  config.sqreen_api_token = ENV['SQREEN_API_TOKEN']
+
+  # Block signing up when: Risk scores are too high, or the email address is disposable.
+  config.sqreen_block_sign_up = -> (email, ip, user) {
+    (ip && ip['risk_score'] > 70) ||
+        (email && (email['risk_score'] > 70 || email['is_disposable']))
+  }
+
+  # Block signing in from TOR, and from France
+  config.sqreen_block_sign_in = -> (email, ip, user) {
+    ip && (ip['is_tor'] || ip['ip_geo']['country_code'] == 'FRA')
+  }
 end
